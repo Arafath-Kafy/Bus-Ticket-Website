@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Ticket - Bus Ticket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Bus Ticket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="booking.html">Tickets</a></li>
+                <li><a href="bus.html">Buses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <li id="profile">
+                    <a href="profile.html">Profile</a>
+                </li>
+                <li id="notification">
+                    <img id="notification-icon" src="noti.png" alt="Notifications" />
+                    <span id="notification-count" class="notification-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="ticket-section">
+            <h2>Your Demo Ticket</h2>
+            <div class="ticket-details">
+                <p><strong>From:</strong> <span id="from"></span></p>
+                <p><strong>To:</strong> <span id="to"></span></p>
+                <p><strong>Travel Date:</strong> <span id="travel-date"></span></p>
+                <p><strong>Travel Time:</strong> <span id="travel-time"></span></p>
+                <p><strong>Bus Seat Number:</strong> <span id="bus-seat"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="left-section">
+                <p>Developed by:</p>
+                <p class="developer-name">Arafath Kafy</p>
+                <p class="developer-name">Saimon Islam Faisal</p>
+            </div>
+            <div class="right-section">
+                <p>Contact us: arafathkafy@gmail.com</p>
+                <p>Phone: +8801400065916</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            // Extract form data from URL parameters
+            const fromLocation = urlParams.get('from');
+            const toLocation = urlParams.get('to');
+            const travelDate = urlParams.get('travel-date');
+            const travelTime = urlParams.get('travel-time');
+            const selectedSeats = urlParams.get('bus-seat').split(', ');
+            
+            // Display form data in the demo ticket page
+            document.getElementById('from-location').textContent = fromLocation;
+            document.getElementById('to-location').textContent = toLocation;
+            document.getElementById('travel-date').textContent = travelDate;
+            document.getElementById('travel-time').textContent = travelTime;
+            
+            // Display selected seats
+            const selectedSeatsContainer = document.getElementById('selected-seats');
+            selectedSeats.forEach(seat => {
+                const seatElement = document.createElement('li');
+                seatElement.textContent = seat;
+                selectedSeatsContainer.appendChild(seatElement);
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

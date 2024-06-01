@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Bus Ticket</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional CSS for payment forms */
+        .payment-form {
+            display: none;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Bus Ticket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="booking.html">Tickets</a></li>
+                <li><a href="bus.html">Buses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main>
+        <div class="payment-container">
+
+            <section class="payment-section">
+                <h2>Payment Options</h2>
+                <div class="payment-methods">
+                    <div class="method">
+                        <input type="radio" id="bkash" name="payment-option" value="bkash">
+                        <label for="bkash">
+                            <img src="bkash_logo.png" alt="bKash">
+                            <span>bKash</span>
+                        </label>
+                    </div>
+                    <div class="method">
+                        <input type="radio" id="nagad" name="payment-option" value="nagad">
+                        <label for="nagad">
+                            <img src="nogod_logo.png" alt="Nagad">
+                            <span>Nagad</span>
+                        </label>
+                    </div>
+                    <div class="method">
+                        <input type="radio" id="upay" name="payment-option" value="upay">
+                        <label for="upay">
+                            <img src="upay_logo.png" alt="Upay">
+                            <span>Upay</span>
+                        </label>
+                    </div>
+                    <div class="method">
+                        <input type="radio" id="visa" name="payment-option" value="visa">
+                        <label for="visa">
+                            <img src="visa_logo.png" alt="Upay">
+                            <span>Visa</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="payment-form bkash-form" id="bkash-form">
+                    <h3>Bkash Payment</h3>
+                    <form action="demoticket.html" method="get" id="bkash-payment-form">
+                        <label for="bkash-number">Bkash Number:</label>
+                        <input type="text" id="bkash-number" name="bkash-number" required>
+
+                        <label for="bkash-pin">PIN:</label>
+                        <input type="password" id="bkash-pin" name="bkash-pin" required>
+
+                        <input type="hidden" id="tickets" name="tickets" value="">
+                        <input type="hidden" id="amount" name="amount" value=""> <!-- Adjust the value as needed -->
+
+                        <button type="submit">Confirm Payment</button>
+                    </form>
+                </div>
+
+
+                <div id="nagad-form" class="payment-form nagad-form">
+                    <h3>Nagad Payment</h3>
+                    <form action="demoticket.html" method="get" id="nagad-payment-form">
+                        <label for="nagad-number">Nagad Account Number:</label>
+                        <input type="text" id="nagad-number" name="nagad-number" required>
+
+                        <label for="nagad-pin">PIN:</label>
+                        <input type="password" id="nagad-pin" name="nagad-pin" required>
+
+                        <input type="hidden" id="tickets" name="tickets" value="">
+                        <input type="hidden" id="amount" name="amount" value=""> <!-- Adjust the value as needed -->
+
+                        <button type="submit">Confirm Payment</button>
+                    </form>
+                </div>
+
+                <div id="upay-form" class="payment-form upay-form">
+                    <h3>Upay Payment</h3>
+                    <form action="demoticket.html" method="get" id="upay-payment-form">
+                        <label for="upay-number">Upay Account Number:</label>
+                        <input type="text" id="upay-number" name="upay-number" required>
+
+                        <label for="upay-pin">PIN:</label>
+                        <input type="password" id="upay-pin" name="upay-pin" required>
+
+                        <input type="hidden" id="tickets" name="tickets" value="">
+                        <input type="hidden" id="amount" name="amount" value=""> <!-- Adjust the value as needed -->
+
+                        <button type="submit">Confirm Payment</button>
+                    </form>
+                </div>
+
+                <div id="visa-form" class="payment-form visa-form">
+                    <h3>Visa Payment</h3>
+                    <form action="demoticket.html" method="get" id="visa-payment-form">
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" required>
+
+                        <label for="expiry-date">Expiry Date:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" required>
+
+                        <input type="hidden" id="tickets" name="tickets" value="">
+                        <input type="hidden" id="amount" name="amount" value=""> <!-- Adjust the value as needed -->
+
+                        <button type="submit">Confirm Payment</button>
+                    </form>
+                </div>
+
+            </section>
+
+            <div class="payment_summary">
+                <div class="h1_ps">Order Summary</div>
+                <div class="order-details">
+                    <p>Number of Ticket</p>
+                    <p id="ticket-count">00</p>
+                </div>
+                <hr class="divider">
+                <div class="order-details">
+                    <p>Price Per Ticket:</p>
+                    <p id="price-per-ticket">500.00 Taka</p>
+                </div>
+                <hr class="divider">
+                <div class="order-total">
+                    <p>Total:</p>
+                    <p id="total-amount">00.00 Taka</p>
+                </div>
+                <hr class="divider">
+                <div class="secure-checkout">
+                    <p>Secure Checkout</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script>
+        const ticketCount = document.getElementById('ticket-count');
+        const pricePerTicket = document.getElementById('price-per-ticket');
+        const totalAmount = document.getElementById('total-amount');
+        const bkashForm = document.getElementById('bkash-form');
+        const nagadForm = document.getElementById('nagad-form');
+        const upayForm = document.getElementById('upay-form');
+        const visaForm = document.getElementById('visa-form');
+        const bkashPaymentForm = document.getElementById('bkash-payment-form');
+        const nagadPaymentForm = document.getElementById('nagad-payment-form');
+        const upayPaymentForm = document.getElementById('upay-payment-form');
+        const visaPaymentForm = document.getElementById('visa-payment-form');
+
+        // Get data from URL parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const tickets = urlParams.get('tickets');
+        const amount = urlParams.get('amount');
+
+        // Update order summary
+        ticketCount.textContent = tickets;
+        totalAmount.textContent = amount;
+
+        // Show payment form based on selected payment option
+        const paymentOptions = document.querySelectorAll('input[name="payment-option"]');
+        paymentOptions.forEach(option => {
+            option.addEventListener('change', () => {
+                if (option.value === 'bkash') {
+                    bkashForm.classList.add('active');
+                    nagadForm.classList.remove('active');
+                    upayForm.classList.remove('active');
+                    visaForm.classList.remove('active');
+                    bkashPaymentForm.querySelector('#tickets').value = tickets;
+                    bkashPaymentForm.querySelector('#amount').value = amount;
+                } else if (option.value === 'nagad') {
+                    nagadForm.classList.add('active');
+                    bkashForm.classList.remove('active');
+                    upayForm.classList.remove('active');
+                    visaForm.classList.remove('active');
+                    nagadPaymentForm.querySelector('#tickets').value = tickets;
+                    nagadPaymentForm.querySelector('#amount').value = amount;
+                } else if (option.value === 'upay') {
+                    upayForm.classList.add('active');
+                    bkashForm.classList.remove('active');
+                    nagadForm.classList.remove('active');
+                    visaForm.classList.remove('active');
+                    upayPaymentForm.querySelector('#tickets').value = tickets;
+                    upayPaymentForm.querySelector('#amount').value = amount;
+                } else if (option.value === 'visa') {
+                    visaForm.classList.add('active');
+                    bkashForm.classList.remove('active');
+                    nagadForm.classList.remove('active');
+                    upayForm.classList.remove('active');
+                    visaPaymentForm.querySelector('#tickets').value = tickets;
+                    visaPaymentForm.querySelector('#amount').value = amount;
+                }
+            });
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Bus Ticket. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      <h1>Bus Ticket</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="booking.html">Tickets</a></li>
+        <li><a href="bus.html">Buses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li id="notification-li">
+          <img id="notification-icon" src="noti.png" alt="Notifications" />
+          <span id="notification-count" class="notification-count">0</span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="user-info-container">
+      <h2>User Information</h2>
+      <p><strong>Name:</strong> <span id="user-name"></span></p>
+      <p><strong>Email:</strong> <span id="user-email"></span></p>
+      <button id="logout-button">Logout</button>
+    </div>
+  </main>
+
+  <div id="notification-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p style="font-size: 20px; font-weight: bold">Notifications</p>
+      <ul id="notification-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Send a request to the server to check the user's authentication status
+      fetch("/check-authentication")
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Failed to check authentication status");
+          }
+        })
+        .then(data => {
+          if (data.authenticated) {
+            // User is authenticated, populate the profile page with user information
+            document.getElementById("user-name").textContent = data.user.username;
+            document.getElementById("user-email").textContent = data.user.email;
+
+            // Add logout functionality
+            const logoutButton = document.getElementById("logout-button");
+            logoutButton.addEventListener("click", () => {
+              fetch("/logout")
+                .then(response => {
+                  if (response.ok) {
+                    // Clear local user data and redirect to home page
+                    localStorage.clear();
+                    window.location.href = "Home.html";
+                  } else {
+                    throw new Error("Failed to logout");
+                  }
+                })
+                .catch(error => {
+                  console.error("Logout error:", error);
+                });
+            });
+          } else {
+            // User is not authenticated, hide profile and notification
+            document.querySelector("header").style.display = "none";
+            document.querySelector("main").style.display = "none";
+            document.querySelector("#notification-modal").style.display = "none";
+          }
+        })
+        .catch(error => {
+          console.error("Authentication check error:", error);
+        });
+    });
+
+  </script>
+</body>
+
+</html>

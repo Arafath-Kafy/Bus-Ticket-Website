@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .seat-plan {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Bus Ticket</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="booking.html">Tickets</a></li>
+                <li><a href="bus.html">Buses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <li id="profile">
+                    <a href="profile.html">Profile</a>
+                </li>
+                <li id="notification">
+                    <img id="notification-icon" src="noti.png" alt="Notifications" />
+                    <span id="notification-count" class="notification-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Book Your Bus Ticket</h2>
+    <div class="container">
+        <div class="form-section">
+            <form id="booking-form" action="demoticket.html" method="GET">
+                <label for="from">From:</label>
+                <select id="from" name="from">
+                    <option value="" disabled selected>Choose your location</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Cumilla">Cumilla</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Jessore">Jessore</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                </select>
+                <br><br>
+
+                <label for="to">To:</label>
+                <select id="to" name="to">
+                    <option value="" disabled selected>Choose your destination</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Cumilla">Cumilla</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Jessore">Jessore</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                </select>
+                <br><br>
+
+                <label for="travel-date">Travel Date:</label>
+                <input type="date" id="travel-date" name="travel-date">
+                <br><br>
+
+                <label for="travel-time">Travel Time:</label>
+                <input type="time" id="travel-time" name="travel-time">
+                <br><br>
+
+                <label for="bus-select">Available Buses:</label>
+                <select id="bus-select" name="bus-select" disabled>
+                    <option value="" disabled selected>Choose your bus</option>
+                    <option value="Hanif">Hanif</option>
+                    <option value="Ena">Ena</option>
+                    <option value="Shakura">Shakura</option>
+                    <option value="Shyamoli">Shyamoli</option>
+                    <option value="Green Line">Green Line</option>
+                </select>
+                <br><br>
+
+                <input type="submit" value="Book Ticket">
+            </form>
+            <div>
+                <p>Number of Seats Booked: <span id="ticket-counter">0</span></p>
+            </div>
+        </div>
+
+        <div class="seat-plan">
+            <p style="font-size: 20px; text-align: center; font-weight: bold;">Choose Your Seat</p>
+            <div class="bus">
+                <!-- Seat plan markup -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="left-section">
+                <p>Developed by:</p>
+                <p class="developer-name">Arafath Kafy</p>
+                <p class="developer-name">Saimon Islam Faisal</p>
+            </div>
+            <div class="right-section">
+                <p>Contact us: arafathkafy@gmail.com</p>
+                <p>Phone: +8801400065916</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const bookingForm = document.getElementById('booking-form');
+        const fromSelect = document.getElementById('from');
+        const toSelect = document.getElementById('to');
+        const busSelect = document.getElementById('bus-select');
+        const seatPlan = document.querySelector('.seat-plan');
+        const ticketCounter = document.getElementById('ticket-counter');
+    
+        // Initialize ticket count
+        let selectedSeatsCount = 0;
+    
+        // Function to update ticket counter
+        function updateTicketCounter() {
+            ticketCounter.textContent = selectedSeatsCount;
+        }
+    
+        // Event listener for form submission
+        bookingForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const selectedSeatsCount = document.querySelectorAll('.seat-plan input[type="checkbox"]:checked').length;
+            const pricePerTicket = 20; // Assuming $20 per ticket
+            const totalAmount = selectedSeatsCount * pricePerTicket;
+            const formData = new FormData(bookingForm);
+            formData.append('bus-seat', Array.from(document.querySelectorAll('.seat-plan input[type="checkbox"]:checked')).map(seat => seat.id).join(', '));
+            const queryString = new URLSearchParams(formData).toString();
+            window.location.href = `demoticket.html?${queryString}`;
+        });
+    
+        // Event listeners for changes in 'from' and 'to' selects
+        fromSelect.addEventListener('change', enableBusSelection);
+        toSelect.addEventListener('change', enableBusSelection);
+    
+        // Event listener for changes in 'bus-select'
+        busSelect.addEventListener('change', function () {
+            if (busSelect.value) {
+                seatPlan.style.display = 'block';
+            } else {
+                seatPlan.style.display = 'none';
+            }
+        });
+    
+        // Function to enable bus selection
+        function enableBusSelection() {
+            if (fromSelect.value && toSelect.value) {
+                busSelect.disabled = false;
+            } else {
+                busSelect.disabled = true;
+                seatPlan.style.display = 'none';
+            }
+        }
+    
+        // Get all seat checkboxes
+        const seatCheckboxes = document.querySelectorAll('.seat-plan input[type="checkbox"]');
+    
+        // Event listener for seat selection
+        seatCheckboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    selectedSeatsCount++;
+                } else {
+                    selectedSeatsCount--;
+                }
+                updateTicketCounter();
+            });
+        });
+    
+        // Initial ticket counter update
+        updateTicketCounter();
+    </script>
+    
+
+</body>
+
+</html>

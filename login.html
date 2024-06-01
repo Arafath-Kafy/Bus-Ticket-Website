@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Bus Ticket</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css" />
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      <h1>Bus Ticket</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="booking.html">Tickets</a></li>
+        <li><a href="bus.html">Buses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="login_form">
+    <section class="login-section">
+      <h2>Login to Bus Ticket</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit" class="login-button2">Login</button>
+      </form>
+      <p>Don't have an account? <a href="register.html">Register now</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="left-section">
+        <p>Developed by:</p>
+        <p class="developer-name">Arafath Kafy</p>
+        <p class="developer-name">Saimon Islam Faisal</p>
+      </div>
+      <div class="right-section">
+        <p>Contact us: arafathkafy@gmail.com</p>
+        <p>Phone: +8801400065916</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      const formData = new FormData(this); // Get form data
+
+      fetch("login.php", {
+        method: "POST",
+        body: formData // Send form data to login.php
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Network response was not ok");
+          }
+        })
+        .then(data => {
+          if (data.success) {
+            // Login successful, display success message and redirect
+            toastr.success(data.message, "Success");
+            setTimeout(() => {
+              window.location.href = data.redirect;
+            }, 2000);
+          } else {
+            // Login failed, display error message
+            toastr.error(data.message, "Error");
+          }
+        })
+        .catch(error => {
+          console.error("Login error:", error);
+          toastr.error("An error occurred. Please try again.", "Error");
+        });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,858 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+nav ul {
+  font-size: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 30px; 
+}
+
+nav ul li:last-child {
+  margin-right: 0; 
+}
+
+nav ul li a {
+  color: #fafafa;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  padding: 20px;
+}
+
+.first-section {
+  background-image: url("Bus-wall.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0 ;
+  height: 500px;
+}
+
+.welcometxt {
+  font-size: 50px;
+  font-weight: bolder;
+  color: #fcfcfc;
+  text-shadow: -1px -1px 0 #6d6d6d,  
+                1px -1px 0 #6d6d6d,
+               -1px  1px 0 #6d6d6d,
+                1px  1px 0 #6d6d6d;
+}
+
+
+.second-section {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.payment-icons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.payment-icons img {
+  width: 150px;
+  height: auto;
+  margin: 40px;
+}
+
+.content {
+  margin: 0;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.buttons {
+  display: flex !important;
+  justify-content: flex-start; 
+  align-items: center;
+  margin-bottom: 20px;
+}
+.button_booknow {
+  display: flex;
+  justify-content:center; 
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 160px;
+}
+
+
+.login-button,
+.register-button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 2px solid;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.login-button {
+  border-color: #007bff;
+  background-color: #007bff;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.register-button {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+.register-button:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+.buttons p {
+  color: #333;
+  margin: 0 10px;
+}
+
+.book-now-button {
+  display: block;
+  margin: 300px auto 0;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff7300;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  transition: all 0.3s ease;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+.book-now-button:hover {
+  background-color: #e65a00;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left-section,
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.left-section .developer-name {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 50px;
+  color: #fcfcfc;
+}
+
+.p1 {
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.paytitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: #020202;
+  text-align: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  nav ul li {
+      margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .first-section {
+      padding: 80px 20px; 
+  }
+
+  .second-section {
+      padding: 40px 20px; 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  nav ul li {
+      margin-right: 10px; 
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .logo img {
+      height: 40px;
+  }
+
+  .buttons {
+      flex-direction: column;
+      align-items: flex-start; 
+  }
+
+  .buttons button,
+  .buttons p {
+      margin: 10px 0; 
+  }
+
+  .book-now-button {
+      margin: 20px auto; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-section,
+  .register-section {
+      margin-top: 20px; 
+      margin-bottom: 20px;
+  }
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+nav ul {
+  font-size: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 30px; 
+}
+
+nav ul li:last-child {
+  margin-right: 0; 
+}
+
+nav ul li a {
+  color: #fafafa;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.login_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0px;
+}
+
+
+.login-section {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0; 
+}
+
+.login-section h2 {
+  color: #020202;
+  margin-bottom: 20px;
+}
+
+
+
+.login-section form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.login-section form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-section button {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0; 
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.login-section button:hover {
+  background-color: #0056b3;
+}
+
+.login-section p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+
+.register_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0px;
+}
+
+.register-section {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0; 
+}
+
+.register-section h2 {
+  color: #020202;
+  margin-bottom: 20px;
+}
+
+.register-section form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.register-section form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.register-section input[type="text"],
+.register-section input[type="email"],
+.register-section input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.register-section button {
+  width: 100%;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0; /* Adjust padding */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.register-section button:hover {
+  background-color: #218838;
+}
+
+.register-section p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+
+/*Ticket Booking form css*/
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: #020202;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 20px; 
+}
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+select,
+input[type="date"],
+input[type="time"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.seat-plan {
+  flex: 1;
+}
+
+
+/*Seat plan css*/
+
+.bus{
+  margin: 20px auto;
+  max-width: 320px;
+  background-color: rgba(253, 253, 253, 0.986);
+  border: 2px solid orange;
+  border-radius: 10px;
+
+}
+
+ol{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.seats{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-right: 20px;
+
+}
+
+.seat{
+  display: flex;
+  flex: 0 0 15%;
+  padding: 5px;
+  position: relative;
+}
+
+.seat label{
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  padding: 4px 0;
+  background: rgb(211, 211, 211);
+  border-radius: 5px;
+  color: black;
+}
+
+.seat label:hover{
+  cursor: pointer;
+  box-shadow: 0 0 0px 2px rgb(158, 240, 183);
+}
+
+.seat input[type=checkbox]{
+  position: absolute;
+}
+
+.seat input[type=checkbox]:checked + label{
+  background: rgb(5, 180, 63);
+}
+
+.seat:nth-child(2){
+  margin-right: 15%;
+}
+
+
+
+/* payment page css*/
+
+/* Updated styles for form elements */
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.payment_summary {
+  width: 300px;
+  margin: 50px auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+.h1_ps {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.order-details, .order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.secure-checkout {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.divider {
+border: 1px solid #ddd;
+margin: 10px 0;
+}
+
+
+.payment-section {
+  width: calc(50% - 10px); /* Adjust the width as needed */
+  background-color: #ffffff; /* Set background color for payment section */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 400px;
+  margin-right: 50px;
+}
+
+.payment-section h2 {
+  color: #020202;
+  margin-bottom: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.method {
+  margin: 10px;
+}
+
+.method img {
+  width: 80px; /* Adjust icon size as needed */
+  height: auto;
+}
+
+.method label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.method input[type="radio"] {
+  display: none; /* Hide the radio button */
+}
+
+.method label span {
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.payment-form {
+  display: none;
+  margin-top: 20px;
+  padding: 40px;
+}
+
+.payment-form.active {
+  display: block;
+}
+
+.summary-item {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.value {
+  font-weight: bold;
+}
+
+/* Styling for form elements */
+.payment-form input[type="text"],
+.payment-form input[type="password"],
+.payment-form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da; /* Set border color */
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px; /* Set font size */
+  background-color: #f9f9f9; /* Set background color for input boxes */
+}
+
+.payment-form input[type="submit"] {
+  background-color: #007bff; /* Set button background color */
+  color: #ffffff; /* Set button text color */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.payment-form input[type="submit"]:hover {
+  background-color: #0056b3; /* Change button background color on hover */
+}
+
+.payment-form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Style for the confirm payment button */
+.payment-form button[type="submit"] {
+  background-color: #edf0ed; /* Blue background color */
+  color: #161616; /* White text color */
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  display: block; /* Change to block-level element */
+  margin: 0 auto; /* Center horizontally */
+  margin-bottom: 30px;
+}
+
+/* Hover effect for the confirm payment button */
+.payment-form button[type="submit"]:hover {
+  background-color: #b1aeae; /* Darker blue on hover */
+}
+
+
+
+.bkash-form {
+  background-color: #ff2088; /* Change to desired color */
+}
+
+.nagad-form {
+  background-color: #ff2929; /* Change to desired color */
+}
+
+.upay-form {
+  background-color: #f7d82b; /* Change to desired color */
+}
+
+.visa-form{
+  color: #f8f9fa;
+  background-color: #1a1f71; /* Change to desired color */
+}
+
+
+
+
+/* CSS for adjusting the size of the notification icon */
+#notification-icon {
+  width: 30px;
+  /* Adjust the width as needed */
+  height: auto;
+  /* Maintain aspect ratio */
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+  transform: translate(-100%, 150%);
+  /* Adjust position */
+}
+
+/* CSS for the notification modal */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  /* Position relative to its parent */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 60px;
+  /* Place modal 60px from the top */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 200px;
+  /* Adjust width as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* Add shadow */
+  border-radius: 10px;
+  /* Rounded corners */
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* User information container */
+.user-info-container {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* Add shadow */
+  border-radius: 10px;
+  /* Rounded corners */
+  margin-bottom: 20px;
+  /* Add some space below */
+}
+
+.user-info-container h2 {
+  margin-top: 0;
+  /* Remove default margin */
+}
+
+.user-info-container p {
+  margin: 5px 0;
+  /* Adjust margin */
+}
+

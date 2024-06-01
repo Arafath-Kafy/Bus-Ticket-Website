@@ -1,0 +1,25 @@
+/* buses.css */
+.bus-list-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.bus-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.bus-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bus-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}

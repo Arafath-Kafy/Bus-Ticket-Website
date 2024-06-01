@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buses - Bus Ticket</title>
+    <link rel="stylesheet" href="style.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="buses.css"> <!-- Specific styles for buses page -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <h1>Bus Ticket</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="booking.html">Tickets</a></li>
+            <li><a href="bus.html">Buses</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+            <li id="profile">
+                <a href="profile.html">Profile</a>
+              </li>
+              <li id="notification">
+                <img id="notification-icon" src="noti.png" alt="Notifications" />
+                <span id="notification-count" class="notification-count">0</span>
+              </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="bus-list-section">
+        <h2>Available Buses</h2>
+        <div class="bus-list" id="busList">
+            <!-- Bus data will be loaded here using AJAX -->
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="left-section">
+            <p>Developed by:</p>
+            <p class="developer-name">Arafath Kafy</p>
+            <p class="developer-name">Saimon Islam Faisal</p>
+        </div>
+        <div class="right-section">
+            <p>Contact us: arafathkafy@gmail.com</p>
+            <p>Phone: +8801400065916</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: 'fetch_buses.php',
+        type: 'GET',
+        success: function(data) {
+            $('#busList').html(data);
+        },
+        error: function(error) {
+            console.log("Error fetching bus data", error);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
